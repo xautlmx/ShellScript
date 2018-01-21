@@ -9,6 +9,8 @@
 # Description: 公共函数
 # Notes:       This plugin uses the "source Common.sh" command
 # -------------------------------------------------------------------------------
+
+#根据提交参数显示状态。true显示的是绿色succeed,false显示的是红色failed
 function Status(){
 	DATE_N=`date "+%Y-%m-%d %H:%M:%S"`
     HOST_N="$1"
