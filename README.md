@@ -21,5 +21,7 @@
 然后执行 sh MutualTrust.sh 用户名 密码 host.txt
 
 注意：
+
 1、host.txt文件不能在windows新建,会编码不一样。直接使用里面的host.txt文件即可。
+
 2、host.txt文件里面不用添加执行脚本的主机ip，脚本里面会自动添加了的。
