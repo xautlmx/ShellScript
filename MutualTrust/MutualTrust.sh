@@ -16,8 +16,13 @@ DestUser=$1
 PassWord=$2  
 HostsFile=$3
 
-if [ $# -ne 3 ]; then  
-    echo "Error: please input sh $0 user password hostsFile"  
+if [ $# -ne 3 ]; then
+    echo "Usage: $0 <user> <password> <hostsfile>"
+    exit 1
+fi
+
+if [ ! -f /usr/bin/expect ]; then
+    echo "Please execute 'yum install expect -y' to install expect first"
     exit 1
 fi
 
@@ -64,6 +69,12 @@ function CreateSSH(){
     cat $SSH_DIR/id_rsa.pub>>$SSH_DIR/authorized_keys  
 
     chmod 600 $SSH_DIR/authorized_keys  
+
+    cat > ~/.ssh/config <<EOF
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+EOF
 
 }
 
